@@ -8,15 +8,17 @@ export default function socketHandler(io) {
       io.emit('message', 'Hii Socket'); // Broadcast the message to all clients
     });
 
-    socket.on('chats', (msg) => {
+    socket.on('chat', (msg) => {
         console.log(msg);
-        socket.emit('reply', {name: 'Mohd Noman', chats: 'Hello bro'});
+        socket.broadcast.emit('broadcast',msg);
     });
 
     socket.on('confirm', (msg,confirmation) => {
         console.log(msg);
         confirmation('your order is confirmed');
     });
+
+    
 
     socket.on('disconnect', () => {
       console.log('A user disconnected');
