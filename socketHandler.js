@@ -11,10 +11,18 @@ export default function socketHandler(io) {
     socket.on('chats', (msg) => {
         console.log(msg);
         socket.emit('reply', {name: 'Mohd Noman', chats: 'Hello bro'});
-    })
+    });
+
+    socket.on('confirm', (msg,confirmation) => {
+        console.log(msg);
+        confirmation('your order is confirmed');
+    });
+
     socket.on('disconnect', () => {
       console.log('A user disconnected');
     });
+
+    
 });
 }
 
