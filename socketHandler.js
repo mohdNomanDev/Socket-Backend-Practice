@@ -25,4 +25,17 @@ export default function socketHandler(io) {
       console.log("A user disconnected");
     });
   });
+
+  //chat namespace
+  const chat = io.of('/chat');
+
+  chat.on('connection', (socket)=>{
+    console.log('Chat user Connected');
+
+    
+    socket.on('disconnect',()=>{
+      console.log('Chat user Disconnected');
+    });
+  })
 }
+
