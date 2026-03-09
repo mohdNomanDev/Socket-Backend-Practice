@@ -26,16 +26,6 @@ export default function socketHandler(io) {
     });
   });
 
-  //chat namespace
-  const chat = io.of('/chat');
-
-  chat.on('connection', (socket)=>{
-    console.log('Chat user Connected');
-
-    
-    socket.on('disconnect',()=>{
-      console.log('Chat user Disconnected');
-    });
-  })
-}
+  
+};
 
