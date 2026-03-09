@@ -24,11 +24,10 @@ const io = new Server(server, {
 
 io.use((socket, next) => {
   console.log("New Connection Attempted");
-  next(); 
+  next();
 });
 
 // socketHandler(io);
 chatSocketHandler(io);
 
 export default server;
-0;
